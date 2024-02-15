@@ -71,60 +71,7 @@ const questions = [
 		type: "list",
 		name: "License",
 		message: "Choose a license:",
-		choices: [
-			{
-				name: "Apache License 2.0",
-				badge: `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`,
-			}, 
-			{
-				name: "GNU General Public License v3.0",
-				badge: `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`,
-			}, 
-			{
-				name: "MIT License",
-				badge: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`,
-			}, 
-			{
-				name: "BSD 2-Clause 'Simplified' License",
-				badge: `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`,
-			}, 
-			{
-				name: "BSD 3-Clause 'New' or 'Revised' License",
-				badge: `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`,
-			}, 
-			{
-				name: "Boost Software License 1.0",
-				badge: `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`,
-			}, 
-			{
-				name: "Creative Commons Zero v1.0 Universal",
-				badge: `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`,
-			}, 
-			{
-				name: "Eclipse Public License 2.0",
-				badge: `[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)`,
-			}, 
-			{
-				name: "GNU Affero General Public License v3.0",
-				badge: `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`,
-			}, 
-			{
-				name: "GNU General Public License v2.0",
-				badge: `[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`,
-			}, 
-			{
-				name: "GNU Lesser General Public License v3",
-				badge: `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`,
-			}, 
-			{
-				name: "Mozilla Public License 2.0",
-				badge: `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`,
-			}, 
-			{
-				name: "The Unlicense",
-				badge: `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`,
-			},
-		],
+		choices: ["Apache License 2.0", "GNU General Public License v3.0", "MIT License", "BSD 2-Clause 'Simplified' License", "BSD 3-Clause 'New' or 'Revised' License", "Boost Software License 1.0", "Creative Commons Zero v1.0 Universal", "Eclipse Public License 2.0", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU Lesser General Public License v3", "Mozilla Public License 2.0", "The Unlicense"],
 	},
 	{
 		// Contributors
@@ -181,8 +128,7 @@ ${answers.description}
 ${answers.badges.join(" ")}
 
 ## License
-${answers.license.name}
-${answers.license.badge}
+${answers.license}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -214,6 +160,8 @@ Please contact me via [email](mailto:${answers.emailAddress}) or my GitHub:
 		`		
 		// 3. write to file with responses
 		writeToFile("generated_README.md", readmeData)
+
+		console.log(answers);
 	});
 }
 
