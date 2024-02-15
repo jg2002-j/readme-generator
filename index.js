@@ -186,4 +186,3 @@ const licensebadges = [
 	{name: "Mozilla Public License 2.0", badge: `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`,}, 
 	{name: "The Unlicense", badge: `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`,},
 ];
-
