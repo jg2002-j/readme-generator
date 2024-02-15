@@ -7,13 +7,23 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
 const questions = [
-
-	{title: ""},
+	{
+		type: 'input',
+		name: 'title',
+		message: "What's the title of your project? ",
+	},
 	// The title of my project
-
-	{description: ""},
+	{
+		type: 'input',
+		name: 'description',
+		message: "Enter a description of your project: ",
+	},
 	// Description
 
+
+	// {badges: ""},
+
+	
 	{installation: ""},
 	// Installation
 
@@ -22,7 +32,12 @@ const questions = [
 	{screenshotAlt: ""},
 	// Usage
 
-	{license: ""},
+	{
+		type: 'list',
+		name: 'prize',
+		message: 'For leaving a comment, you get a freebie',
+		choices: ['cake', 'fries'],
+	}
 	// License
 	// When a user chooses a license for their application from a list of options, a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under.
 
@@ -33,12 +48,18 @@ const questions = [
 	{tests: ""},
 	// Tests
 
-	{questions: ""},
+	{githubUser: ""},
+	{emailAddress: ""}
 	// Questions
 	// When a user enters their GitHub username, it's added to the section of the README entitled Questions, with a link to their GitHub profile.
 	// When a user enters their email address, it's added to the section of the README entitled Questions, with instructions on how to reach them with additional questions.
 
 ];
+
+inquirer.prompt(questions).then((answers) => {
+	console.log('\nAnswers:');
+	console.log(JSON.stringify(answers, null, '  '));
+});
 
 const readmeData = `
 # ${title}
@@ -46,12 +67,21 @@ const readmeData = `
 ## Description
 ${description}
 
+${badges}
+![JS Badge](https://img.shields.io/badge/JavaScript-white?logo=javascript&logoColor=%23F7DF1E)
+![Node.js Badge](https://img.shields.io/badge/Node.js-white?logo=nodedotjs&logoColor=%#339933)
+![Git Badge](https://img.shields.io/badge/Git-white?logo=git&logoColor=%23F05032)
+![GitHub Badge](https://img.shields.io/badge/GitHub-white?logo=github&logoColor=%23181717)
+![HTML Badge](https://img.shields.io/badge/HTML-white?logo=html5&logoColor=%23E34F26")
+![CSS Badge](https://img.shields.io/badge/CSS-white?logo=CSS3&logoColor=%231572B6)
+![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-white?logo=bootstrap&logoColor=%237952B3)
+![jQuery Badge](https://img.shields.io/badge/jQuery-white?logo=jquery&logoColor=%230769AD)
+
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
-- [Badges](#badges)
 - [Questions](#questions)
 - [Tests](#tests)
 
@@ -74,24 +104,18 @@ ${tests}
 ## License
 ${license}
 
----
-
-## Badges
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
 ## Questions
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+${githubUser}
+${emailAddress}
 
 ## Tests
 ${tests}
 `
 
 
-const filepath = "";
-
 // function to write README file
 function writeToFile(fileName, data) {
-	fs.writeFile(fileName, data, (error) => error ? console.error(err) : console.log(`Success! ${fileName} has been saved to ${filepath}`));
+	fs.writeFile(fileName, data, (error) => error ? console.error(err) : console.log(`Success! ${fileName} has been created.`));
 }
 
 // function to initialize program
