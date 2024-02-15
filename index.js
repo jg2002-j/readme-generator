@@ -10,46 +10,100 @@ const questions = [
 
 	{title: ""},
 	// The title of my project
-	// When a user enters the project title, it's displayed as the title of the README.
 
 	{description: ""},
 	// Description
-	// When a user enters a description, installation instructions, usage information, contribution guidelines, and test instructions, this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests.
 
-	{title: ""},
-	// Table of Contents
-	// When a user clicks on the links in the Table of Contents, they are taken to the corresponding section of the README.
-
-	{title: ""},
+	{installation: ""},
 	// Installation
 
-	{title: ""},
+	{usage: ""},
+	{screenshotLink: ""},
+	{screenshotAlt: ""},
 	// Usage
 
-	{title: ""},
+	{license: ""},
 	// License
 	// When a user chooses a license for their application from a list of options, a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under.
 
-	{title: ""},
+	{contributors: []},
+	{credits: []},
 	// Contributing
 
-	{title: ""},
+	{tests: ""},
 	// Tests
 
-	{title: ""},
+	{questions: ""},
 	// Questions
 	// When a user enters their GitHub username, it's added to the section of the README entitled Questions, with a link to their GitHub profile.
 	// When a user enters their email address, it's added to the section of the README entitled Questions, with instructions on how to reach them with additional questions.
 
 ];
 
+const readmeData = `
+# ${title}
+
+## Description
+${description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Badges](#badges)
+- [Questions](#questions)
+- [Tests](#tests)
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+    ![${screenshotAlt}](${screenshotLink})
+    
+## Contributors & Credits
+### Contributors
+${contributors}
+### Credits
+${credits}
+
+## Tests
+${tests}
+
+## License
+${license}
+
+---
+
+## Badges
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
+
+## Questions
+If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+
+## Tests
+${tests}
+`
+
+
+const filepath = "";
+
 // function to write README file
 function writeToFile(fileName, data) {
+	fs.writeFile(fileName, data, (error) => error ? console.error(err) : console.log(`Success! ${fileName} has been saved to ${filepath}`));
 }
 
 // function to initialize program
 function init() {
 
+
+	// 1. ask questions
+	
+	// 2. record responses
+	
+	writeToFile("README.md", readmeData)
+	// 3. write to file with responses
 }
 
 // function call to initialize program
