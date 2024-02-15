@@ -52,7 +52,6 @@ const questions = [
 		message: "Describe how to install your project:",
 		default: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.",
 	},
-
 	{
 		// Usage
 		type: "input",
@@ -72,7 +71,60 @@ const questions = [
 		type: "list",
 		name: "License",
 		message: "Choose a license:",
-		choices: ["Apache License 2.0", "GNU General Public License v3.0", "MIT License", "BSD 2-Clause 'Simplified' License", "BSD 3-Clause 'New' or 'Revised' License", "Boost Software License 1.0", "Creative Commons Zero v1.0 Universal", "Eclipse Public License 2.0", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU Lesser General Public License v3", "Mozilla Public License 2.0", "The Unlicense"],
+		choices: [
+			{
+				name: "Apache License 2.0",
+				badge: `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`,
+			}, 
+			{
+				name: "GNU General Public License v3.0",
+				badge: `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`,
+			}, 
+			{
+				name: "MIT License",
+				badge: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`,
+			}, 
+			{
+				name: "BSD 2-Clause 'Simplified' License",
+				badge: `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`,
+			}, 
+			{
+				name: "BSD 3-Clause 'New' or 'Revised' License",
+				badge: `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`,
+			}, 
+			{
+				name: "Boost Software License 1.0",
+				badge: `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`,
+			}, 
+			{
+				name: "Creative Commons Zero v1.0 Universal",
+				badge: `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`,
+			}, 
+			{
+				name: "Eclipse Public License 2.0",
+				badge: `[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)`,
+			}, 
+			{
+				name: "GNU Affero General Public License v3.0",
+				badge: `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`,
+			}, 
+			{
+				name: "GNU General Public License v2.0",
+				badge: `[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`,
+			}, 
+			{
+				name: "GNU Lesser General Public License v3",
+				badge: `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`,
+			}, 
+			{
+				name: "Mozilla Public License 2.0",
+				badge: `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`,
+			}, 
+			{
+				name: "The Unlicense",
+				badge: `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`,
+			},
+		],
 	},
 	{
 		// Contributors
@@ -119,51 +171,6 @@ function init() {
 	// 1. ask questions
 	console.log("\nHi, please create your README by answering the prompts below.\n")
 	inquirer.prompt(questions).then((answers) => {
-		// When a user chooses a license for their application from a list of options, a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under.
-		const licenseBadge = "";
-		switch (answers.license) {
-			case "Apache License 2.0":
-				licenseBadge = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
-				break;
-			case "GNU General Public License v3.0":
-				licenseBadge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
-				break;
-			case "MIT License":
-				licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
-				break;
-			case "BSD 2-Clause 'Simplified' License":
-				licenseBadge = `[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`;
-				break;
-			case "BSD 3-Clause 'New' or 'Revised' License":
-				licenseBadge = `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
-				break;
-			case "Boost Software License 1.0":
-				licenseBadge = `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`;
-				break;
-			case "Creative Commons Zero v1.0 Universal":
-				licenseBadge = `[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)`;
-				break;
-			case "Eclipse Public License 2.0":
-				licenseBadge = `[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)`;
-				break;
-			case "GNU Affero General Public License v3.0":
-				licenseBadge = `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`;
-				break;
-			case "GNU General Public License v2.0":
-				licenseBadge = `[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
-				break;
-			case "GNU Lesser General Public License v3":
-				licenseBadge = `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`;
-				break;
-			case "Mozilla Public License 2.0":
-				licenseBadge = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
-				break;
-			case "The Unlicense":
-				licenseBadge = `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`;
-				break;
-			default:
-				break;
-		}
 		// 2. record responses
 		console.log("License badge is " + licenseBadge)
 		const readmeData = `
@@ -174,14 +181,15 @@ ${answers.description}
 
 ${answers.badges.join(" ")}
 
-${licenseBadge}
+## License
+${answers.license.name}
+${answers.license.badge}
 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [Tests](#tests)
-- [License](#license)
 - [Questions](#questions)
 
 ## Installation
@@ -200,9 +208,6 @@ ${answers.credits}
 ## Tests
 ${answers.tests}
 
-## License
-${answers.license}
-
 ## Questions
 Please contact me via [email](mailto:${answers.emailAddress}) or my GitHub:
 
@@ -210,7 +215,6 @@ Please contact me via [email](mailto:${answers.emailAddress}) or my GitHub:
 		`		
 		// 3. write to file with responses
 		writeToFile("generated_README.md", readmeData)
-		console.log(licenseBadge)
 	});
 }
 
