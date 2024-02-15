@@ -172,7 +172,6 @@ function init() {
 	console.log("\nHi, please create your README by answering the prompts below.\n")
 	inquirer.prompt(questions).then((answers) => {
 		// 2. record responses
-		console.log("License badge is " + licenseBadge)
 		const readmeData = `
 # ${answers.title}
 
