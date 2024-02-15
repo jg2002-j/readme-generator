@@ -97,13 +97,30 @@ const questions = [
 	},
 ];
 
+{
+	title: 'titlessdfdfsdfs',
+	description: 'descriptionsdifjnsdfs',
+	badges: [],
+	installation: 'installationsasdoj',
+	usage: 'aoisjdoaisjdioad',
+	License: 'GNU General Public License v3.0',
+	contributors: 'https://github.com/jg2002-j',
+	credits: 'http://127.0.0.1:5500/index.html#nodebasics',
+	tests: 'none',
+	githubUser: 'jg2002',
+	emailAddress: 'jai.2002.gandhi@gmail.com'
+}
+ 
+
+
+
 const readmeData = `
-# ${title}
+# ${answers.title}
 
 ## Description
-${description}
+${answers.description}
 
-${badges}
+${answers.badges.join(" ")}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -114,30 +131,27 @@ ${badges}
 - [Tests](#tests)
 
 ## Installation
-${installation}
+${answers.installation}
 
 ## Usage
-${usage}
-    ![Deployed Application](${screenshotLink})
+${answers.usage}
+    ![Deployed Application](${answers.screenshotLink})
     
 ## Contributors & Credits
 ### Contributors
-${contributors}
+${answers.contributors}
 ### Credits
-${credits}
+${answers.credits}
 
 ## Tests
-${tests}
+${answers.tests}
 
 ## License
-${license}
+${answers.license}
 
 ## Questions
-${githubUser}
-${emailAddress}
-
-## Tests
-${tests}
+Please contact me for any questions:
+[![GitHub Badge](https://img.shields.io/badge/${answers.githubUser}-white?logo=github&logoColor=%23181717)](https://github.com/${answers.githubUser}) | ${answers.emailAddress}
 `
 
 
@@ -161,7 +175,6 @@ function init() {
 
 // function call to initialize program
 init();
-
 
 
 
