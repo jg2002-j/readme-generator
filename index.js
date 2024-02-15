@@ -23,7 +23,7 @@ const questions = [
 		// Tech Badges
 		type: "checkbox",
 		name: "badges",
-		message: "Choose all the technologies you used: "
+		message: "Choose all the technologies you used: ",
 		choices: [
 			{name: "HTML", value: `![HTML Badge](https://img.shields.io/badge/HTML-white?logo=html5&logoColor=%23E34F26")`,},
 			{name: "CSS", value: `![CSS Badge](https://img.shields.io/badge/CSS-white?logo=CSS3&logoColor=%231572B6)`,},
@@ -97,64 +97,6 @@ const questions = [
 	},
 ];
 
-{
-	title: 'titlessdfdfsdfs',
-	description: 'descriptionsdifjnsdfs',
-	badges: [],
-	installation: 'installationsasdoj',
-	usage: 'aoisjdoaisjdioad',
-	License: 'GNU General Public License v3.0',
-	contributors: 'https://github.com/jg2002-j',
-	credits: 'http://127.0.0.1:5500/index.html#nodebasics',
-	tests: 'none',
-	githubUser: 'jg2002',
-	emailAddress: 'jai.2002.gandhi@gmail.com'
-}
- 
-
-
-
-const readmeData = `
-# ${answers.title}
-
-## Description
-${answers.description}
-
-${answers.badges.join(" ")}
-
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-- [Questions](#questions)
-- [Tests](#tests)
-
-## Installation
-${answers.installation}
-
-## Usage
-${answers.usage}
-    ![Deployed Application](${answers.screenshotLink})
-    
-## Contributors & Credits
-### Contributors
-${answers.contributors}
-### Credits
-${answers.credits}
-
-## Tests
-${answers.tests}
-
-## License
-${answers.license}
-
-## Questions
-Please contact me for any questions:
-[![GitHub Badge](https://img.shields.io/badge/${answers.githubUser}-white?logo=github&logoColor=%23181717)](https://github.com/${answers.githubUser}) | ${answers.emailAddress}
-`
-
-
 // function to write README file
 function writeToFile(fileName, data) {
 	fs.writeFile(fileName, data, (error) => error ? console.error(err) : console.log(`Success! ${fileName} has been created.`));
@@ -166,10 +108,48 @@ function init() {
 	console.log("Hi, please create your README by answering the prompts below.\n")
 	inquirer.prompt(questions).then((answers) => {
 		// 2. record responses
-		console.log('\nAnswers:');
-		console.log(JSON.stringify(answers, null, '  '));
+		const readmeData = `
+		# ${answers.title}
+		
+		## Description
+		${answers.description}
+		
+		${answers.badges.join(" ")}
+		
+		## Table of Contents
+		- [Installation](#installation)
+		- [Usage](#usage)
+		- [Credits](#credits)
+		- [License](#license)
+		- [Questions](#questions)
+		- [Tests](#tests)
+		
+		## Installation
+		${answers.installation}
+		
+		## Usage
+		${answers.usage}
+			 ![Deployed Application](${answers.screenshotLink})
+			 
+		## Contributors & Credits
+		### Contributors
+		${answers.contributors}
+		### Credits
+		${answers.credits}
+		
+		## Tests
+		${answers.tests}
+		
+		## License
+		${answers.license}
+		
+		## Questions
+		Please contact me for any questions:
+		[![My GitHub](https://img.shields.io/badge/${answers.githubUser}-white?logo=github&logoColor=%23181717)](https://github.com/${answers.githubUser}) 
+		[![My Email](https://img.shields.io/badge/${answers.emailAddress}-white?logo=maildotru&logoColor=%23005FF9)](mailto:${answers.emailAddress}) 
+		`		
 		// 3. write to file with responses
-		writeToFile("README.md", readmeData)
+		writeToFile("generated_README.md", readmeData)
 	});
 }
 
