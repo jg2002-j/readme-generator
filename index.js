@@ -119,6 +119,7 @@ function init() {
 	// 1. ask questions
 	console.log("\nHi, please create your README by answering the prompts below.\n")
 	inquirer.prompt(questions).then((answers) => {
+		// 1.5 get corresponding badge for the license
 		const licensebadges = [
 			{name: "Apache License 2.0", badge: `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`,}, 
 			{name: "GNU General Public License v3.0", badge: `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`,}, 
@@ -135,8 +136,6 @@ function init() {
 			{name: "The Unlicense", badge: `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`,},
 		];
 		const matchingbadge = licensebadges.find((badgeobj) => badgeobj.name == answers.license)
-		console.log(matchingbadge.badge)
-
 		// 2. record responses
 		const readmeData = `
 # ${answers.title}
@@ -178,8 +177,6 @@ Please contact me via [email](mailto:${answers.emailAddress}) or my GitHub:
 		`		
 		// 3. write to file with responses
 		writeToFile("generated_README.md", readmeData)
-
-		console.log(answers);
 	});
 }
 
