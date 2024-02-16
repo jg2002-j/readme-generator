@@ -40,7 +40,7 @@ const questions = [
 		],
 		validate(answer) {
 			if (answer.length < 1) { 
-			  return "You must choose at least one technology.";
+				return "You must choose at least one technology.";
 			}
  			return true;
 		},
@@ -72,7 +72,6 @@ const questions = [
 		name: "license",
 		message: "Choose a license:",
 		choices: ["Apache License 2.0","GNU General Public License v3.0", "MIT License", "BSD 2-Clause 'Simplified' License", "BSD 3-Clause 'New' or 'Revised' License", "Boost Software License 1.0", "Creative Commons Zero v1.0 Universal", "Eclipse Public License 2.0", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU Lesser General Public License v3", "Mozilla Public License 2.0", "The Unlicense"],
-		// choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
 	},
 	{
 		// Contributors
@@ -112,7 +111,7 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {fs.writeFile(fileName, data, (error) => error ? console.error(err) : console.log(`Success! ${fileName} has been created.`));}
+function writeToFile(fileName, data) {fs.writeFile(fileName, data, (error) => error ? console.error(err) : console.log(`\nSuccess! ${fileName} has been created.\n`));}
 
 // function to initialize program
 function init() {
@@ -171,9 +170,10 @@ ${answers.credits}
 ${answers.tests}
 
 ## Questions
-Please contact me via [email](mailto:${answers.emailAddress}) or my GitHub:
+Please contact me if you have any questions:
 
-[![My GitHub](https://img.shields.io/badge/${answers.githubUser}?style=flat&logo=github&labelColor=grey&color=white&logoColor=%23181717)](https://github.com/${answers.githubUser}) 
+[![My Email](https://img.shields.io/badge/My%20Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:${answers.emailAddress})
+[![My GitHub](https://img.shields.io/badge/My%20GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/${answers.githubUser}) 
 		`		
 		// 3. write to file with responses
 		writeToFile("generated_README.md", readmeData)
@@ -182,5 +182,3 @@ Please contact me via [email](mailto:${answers.emailAddress}) or my GitHub:
 
 // function call to initialize program
 init();
-
-
