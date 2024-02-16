@@ -7,31 +7,31 @@ Challenge Week 11
 ![Node.js Badge](https://img.shields.io/badge/Node.js-white?logo=nodedotjs&logoColor=%#339933)
 ![Git Badge](https://img.shields.io/badge/Git-white?logo=git&logoColor=%23F05032)
 ![GitHub Badge](https://img.shields.io/badge/GitHub-white?logo=github&logoColor=%23181717)
-<!-- ![HTML Badge](https://img.shields.io/badge/HTML-white?logo=html5&logoColor=%23E34F26") -->
-<!-- ![CSS Badge](https://img.shields.io/badge/CSS-white?logo=CSS3&logoColor=%231572B6) -->
-<!-- ![Bootstrap Badge](https://img.shields.io/badge/Bootstrap-white?logo=bootstrap&logoColor=%237952B3)
-![jQuery Badge](https://img.shields.io/badge/jQuery-white?logo=jquery&logoColor=%230769AD) -->
+
 ## Description
 
-description
-
+This project helped me learn node.js by installing a third-party package (Inquirer) through npm. Using the readme docs for that package, I then created several questions, gathered the user input and implemented it via template literals into a "write" function to a [README.md document](./generated_README.md).
 
 ## Installation
 
-No installation required. Access the deployed GitPages website [here.](https://jg2002-j.github.io/readme-generator/)
+[Node.js](https://nodejs.org/en) is required to run this application in the terminal.
 
 ## Usage
 
-- usage
+Run the `index.js` file with node on your computer.
 
-![Deployed Website Screenshot](./assets/deployed.png)
+See full walkthrough video [here](https://drive.google.com/file/d/1sKMw_5qA117Gvbda7VmB8wEZqXRL2E_N/view?usp=sharing)
+
+![Deployed Application Functionality](./assets/deployed_application.gif)
+![Deployed Application Screenshot](./assets/deployed_application.png)
 
 ## Credits
 
-- credits
+- [Inquirer](https://www.npmjs.com/package/inquirer)
+- [Path](https://www.npmjs.com/package/path)
+- [Screencastify](https://www.screencastify.com/)
 
 ## License
 
-See included [MIT License](https://github.com/jg2002-j/readme-generator/blob/main/LICENSE).
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/jg2002-j/readme-generator/blob/main/LICENSE)
 
